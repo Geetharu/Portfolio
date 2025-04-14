@@ -1,9 +1,17 @@
+import Hero from '../../components/Hero'
+import About from '../../components/About'
+import Skills from '../../components/Skills'
+import Projects from '../../components/Projects'
+import Contact from '../../components/Contact'
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-4xl font-bold text-pink-500">
-        Hello I'm Geeth!
-      </h1>
+    <main>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
     </main>
   )
 }
