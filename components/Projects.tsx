@@ -1,49 +1,63 @@
+'use client'
+
+import { motion } from 'framer-motion'
+
 export default function Projects() {
-    return (
-      <section id="projects" className="p-10">
-        <h2 className="text-3xl font-bold mb-6">Projects</h2>
-        <ul className="space-y-6 max-w-3xl">
-          
-          <li>
-            <strong>IoT Monkey Deterrent System</strong><br />
-            <span className="text-gray-600">
-              LoRa-based multi-hop communication system for monkey detection and deterrence in agriculture.
-            </span>
-          </li>
-  
-          <li>
-            <strong>FitFusion</strong><br />
-            <span className="text-gray-600">
-              A fitness management application allowing users to create and manage meal plans, workout routines, and schedules. 
-              Developed the Workout Plan module with full CRUD operations using Spring Boot (backend) and React (frontend).
-            </span>
-          </li>
-  
-          <li>
-            <strong>Lingo Translator</strong><br />
-            <span className="text-gray-600">
-              A group project built with the MERN stack, providing Sinhala-English translation with unique features:
-              1) Emoji-based translation and 2) Cultural language adaptation for better context understanding.
-            </span>
-          </li>
-  
-          <li>
-            <strong>Online Vaccine Portal</strong><br />
-            <span className="text-gray-600">
-              A group project developed using PHP, HTML, and CSS. The platform enables users to register for vaccinations,
-              access vaccine information, and manage appointments online.
-            </span>
-          </li>
-  
-          <li>
-            <strong>Portfolio Website</strong><br />
-            <span className="text-gray-600">
-              Personal portfolio website built using Next.js and Tailwind CSS to showcase my skills, projects, and experiences.
-            </span>
-          </li>
-  
-        </ul>
-      </section>
-    );
-  }
-  
+  const projects = [
+    {
+      title: 'IoT Monkey Deterrent System',
+      description:
+        'LoRa-based multi-hop communication system for monkey detection and deterrence in agriculture.',
+    },
+    {
+      title: 'FitFusion',
+      description:
+        'A fitness app with meal & workout plan management. Built using Spring Boot & React.',
+    },
+    {
+      title: 'Lingo Translator',
+      description:
+        'Sinhala-English translator with emoji & cultural context support. MERN Stack.',
+    },
+    {
+      title: 'Online Vaccine Portal',
+      description:
+        'PHP-based vaccine registration platform with appointment management.',
+    },
+    {
+      title: 'Portfolio Website',
+      description:
+        'Personal portfolio using Next.js and Tailwind CSS to showcase my skills.',
+    },
+  ]
+
+  return (
+    <section id="projects" className="max-w-5xl mx-auto py-20 px-4">
+      <motion.h2
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-3xl font-bold text-center mb-10"
+      >
+        Projects
+      </motion.h2>
+
+      <div className="grid gap-6">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="bg-white rounded-lg shadow-md p-6 border border-gray-200"
+          >
+            <h3 className="text-xl font-semibold text-pink-600 mb-2">{project.title}</h3>
+            <p className="text-gray-700">{project.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  )
+}
